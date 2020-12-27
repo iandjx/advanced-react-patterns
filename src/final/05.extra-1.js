@@ -1,7 +1,11 @@
 // state reducer
 // 💯 default state reducer
 // http://localhost:3000/isolated/final/05.extra-1.js
-
+/* 
+  State reducer is an inversion control pattern. We design a middleware that allows engineers
+  to add more logic inside the reducer.
+  reducer   <-> middleware <-> custom hook
+*/
 import * as React from 'react'
 import {Switch} from '../switch'
 
@@ -59,10 +63,15 @@ function App() {
   const [timesClicked, setTimesClicked] = React.useState(0)
   const clickedTooMuch = timesClicked >= 4
 
+  //we can easily declare more action types below by just reverting to the default togglereducer
+  //in case no new types are added
   function toggleStateReducer(state, action) {
     if (action.type === 'toggle' && clickedTooMuch) {
       return {on: state.on}
     }
+    //if (action.type === 'foooo' && noInternet ){
+    // reurn {action...}
+    // }
     return toggleReducer(state, action)
   }
 

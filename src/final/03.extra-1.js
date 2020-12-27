@@ -21,12 +21,13 @@ function Toggle({children}) {
 
 function useToggle() {
   const context = React.useContext(ToggleContext)
+  // we should always use this to alert users of the required component
   if (context === undefined) {
     throw new Error('useToggle must be used within a <Toggle />')
   }
   return context
 }
-
+s
 function ToggleOn({children}) {
   const {on} = useToggle()
   return on ? children : null

@@ -7,6 +7,7 @@ import {Switch} from '../switch'
 
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn?.(...args))
 
+//use action types so that we can avoid typos on strings
 const actionTypes = {
   toggle: 'toggle',
   reset: 'reset',

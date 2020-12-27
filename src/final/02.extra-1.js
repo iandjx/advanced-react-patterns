@@ -9,6 +9,8 @@ function Toggle({children}) {
   const [on, setOn] = React.useState(false)
   const toggle = () => setOn(!on)
   return React.Children.map(children, child => {
+    // this allows other child components that are not toggle to be used
+    // lesson 3 is better
     return typeof child.type === 'string'
       ? child
       : React.cloneElement(child, {on, toggle})

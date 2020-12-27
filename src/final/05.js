@@ -20,6 +20,8 @@ function toggleReducer(state, {type, initialState}) {
   }
 }
 
+//allow user to create his own reducer to pass to the useToggle function
+//if no reducer is passed then default to toggleReducer
 function useToggle({initialOn = false, reducer = toggleReducer} = {}) {
   const {current: initialState} = React.useRef({on: initialOn})
   const [state, dispatch] = React.useReducer(reducer, initialState)

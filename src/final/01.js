@@ -1,6 +1,11 @@
 // Context Module Functions
 // http://localhost:3000/isolated/final/01.js
-
+//
+/* 
+we combine useReducer and useContext to expose the dispatch functions of the useReducer
+we declare functions that accept a dispatch function so that we can abstract dispatch calls in parent
+component
+*/
 import * as React from 'react'
 import {dequal} from 'dequal'
 
@@ -75,6 +80,7 @@ function useUser() {
 
 // got this idea from Dan and I love it:
 // https://twitter.com/dan_abramov/status/1125773153584676864
+// this allows us to not call dispatch inside components.
 async function updateUser(dispatch, user, updates) {
   dispatch({type: 'start update', updates})
   try {
